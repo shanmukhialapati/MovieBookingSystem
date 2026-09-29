@@ -14,7 +14,6 @@ CineVault is a movie ticket booking application where users can browse movies, f
 - **Discount codes:** promo code support (for example `SAVE10`) applied at checkout.
 - **Digital ticket:** confirmation with movie, date, time, theater, seat, screen, amount paid, booking ID and a scannable QR code.
 - **Theming:** light and dark mode toggle.
-## Demo
 
 ## Tech Stack
 
@@ -107,6 +106,3 @@ Discount codes (for example `SAVE10` for 10% off) are applied to the total befor
 **Alapati Shanmukhi**
 [GitHub](https://github.com/shanmukhialapati) · [LinkedIn](https://www.linkedin.com/in/alapati-shanmukhi/)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
