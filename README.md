@@ -1,50 +1,112 @@
-# Welcome to your Expo app 👋
+# 🎬 CineVault: Movie Ticket Booking App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+CineVault is a movie ticket booking application where users can browse movies, find theaters on a **real-time map**, pick a showtime, choose seats from an interactive seat map, apply discount codes, and receive a digital ticket with a QR code. It supports light and dark themes and runs on mobile and web from a single codebase.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Movie discovery:** featured banner, "Now Showing" list, genre filters (Action, Drama, Sci-Fi, Comedy, Thriller, Horror, Animation) and movie search.
+- **Movie details:** poster, genre, runtime, certificate, format tags (2D, Dolby), IMDb score, box office, cast, trailer and share options.
+- **Real-time theater map:** visualize theaters on an interactive map, see where each theater is located, and switch between map and list views.
+- **Theater and showtime selection:** choose a date, browse theaters with address, amenities (Dolby, 4K), seat capacity and starting price, and filter by city.
+- **Interactive seat map:** row and seat layout with Premium and Standard tiers, live pricing, and sold/locked and selected seat states.
+- **Booking summary:** selected seats grouped by tier with the total amount payable.
+- **Multi-step booking flow:** Movie → Seats → Payment → Confirm progress tracker.
+- **Discount codes:** promo code support (for example `SAVE10`) applied at checkout.
+- **Digital ticket:** confirmation with movie, date, time, theater, seat, screen, amount paid, booking ID and a scannable QR code.
+- **Theming:** light and dark mode toggle.
+## Demo
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React Native (Expo), TypeScript |
+| Navigation | Expo Router |
+| Maps | Leaflet |OpenStreetMap |
+| API calls | Axios, REST APIs |
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+## Booking Flow
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. Browse or search for a movie on the home screen.
+2. Open the movie details page and tap **Book tickets**.
+3. Select a date, then choose a theater from the list or the real-time map.
+4. Pick a showtime and select seats on the seat map (Premium or Standard).
+5. Review the summary, apply a discount code and complete payment.
+6. Receive the confirmed ticket with a QR code and booking ID.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Getting Started
 
-## Get a fresh project
+### Prerequisites
 
-When you're ready, run:
+- Node.js 18 or later
+- npm or yarn
+- Expo CLI (`npx expo` works without a global install)
+
+### Installation
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone https://github.com/<your-username>/cinevault.git
+cd cinevault
+
+# Install dependencies
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Configuration
 
-## Learn more
+Create a `.env` file in the project root:
 
-To learn more about developing your project with Expo, look at the following resources:
+```env
+EXPO_PUBLIC_API_URL=http://<your-api-host>:<port>
+EXPO_PUBLIC_MAPS_API_KEY=<your-map-api-key>
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Run the app
 
-## Join the community
+```bash
+# Start the development server
+npx expo start
 
-Join our community of developers creating universal apps.
+# Run on web
+npx expo start --web
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The web version runs at `http://localhost:8081` by default. Use the Expo Go app or an emulator to run it on a phone.
+
+## App Routes
+
+| Route | Screen |
+|-------|--------|
+| `/` | Home: featured movie, genres, now showing |
+| `/Components/MovieDetail?id=<movieId>` | Movie details |
+| `/Components/TheaterSelection?movieId=<movieId>` | Date, theater (list or map) and showtime selection |
+| `/Components/MovieBooking?showId=<showId>&movieId=<movieId>` | Seat selection and booking summary |
+| `/Components/Ticket?bookingId=<bookingId>` | Confirmed ticket with QR code |
+
+## Pricing Example
+
+| Seat Type | Rows | Price |
+|-----------|------|-------|
+| Premium | A, B | ₹280 per seat |
+| Standard | C onwards | ₹180 per seat |
+
+Discount codes (for example `SAVE10` for 10% off) are applied to the total before the ticket is confirmed.
+
+## Roadmap
+
+- Payment gateway integration
+- Email and SMS ticket delivery
+- Booking history and cancellation
+- Seat locking with timeout during checkout
+- Admin panel to manage movies, theaters and shows
+
+## Author
+
+**Alapati Shanmukhi**
+[GitHub](https://github.com/shanmukhialapati) · [LinkedIn](https://www.linkedin.com/in/alapati-shanmukhi/)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
