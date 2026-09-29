@@ -10,7 +10,7 @@ CineVault is a movie ticket booking application where users can browse movies, f
 - **Theater and showtime selection:** choose a date, browse theaters with address, amenities (Dolby, 4K), seat capacity and starting price, and filter by city.
 - **Interactive seat map:** row and seat layout with Premium and Standard tiers, live pricing, and sold/locked and selected seat states.
 - **Booking summary:** selected seats grouped by tier with the total amount payable.
-- **Multi-step booking flow:** Movie → Seats → Payment → Confirm progress tracker.
+- **Multi-step booking flow:** Movie → theaters → Seats → Payment → Confirm progress tracker.
 - **Discount codes:** promo code support (for example `SAVE10`) applied at checkout.
 - **Digital ticket:** confirmation with movie, date, time, theater, seat, screen, amount paid, booking ID and a scannable QR code.
 - **Theming:** light and dark mode toggle.
